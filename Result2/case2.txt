@@ -1,0 +1,336 @@
+parameters set up for train_recon_phase_all.m
+
+Case 2:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Setup What to plot in here and if you want all video frames for filters.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+PLOT_INPUT_MAPS = 1;
+PLOT_ORIGINAL_IMAGES = 0;
+PLOT_INPUT_HIST = 0;
+
+PLOT_FILTERS = 0;
+PLOT_PIXEL_FILTERS = 1;        % Does nothing for layer 1.
+PLOT_FILTER_HISTOGRAM = 0;
+
+PLOT_FEATURE_MAPS = 0;         % All images
+PLOT_POOLED_MAPS = 0;          % All images
+PLOT_FEATURE_HIST = 0;
+
+PLOT_Z0_MAPS = 0;              % All images
+
+PLOT_UPDATED_Y = 0;            % Show
+PLOT_RECON_Y = 1;
+PLOT_RECON_Y_SAMPLE = 0;
+
+PLOT_TIMEFILL_COMPARISON = 0; % Compares filled in frame point to true frame.
+
+PRINT_ERRORS = 1; % Prints to std the errors of the cost function.
+GRAPH_ERRORS = 0; % PLots out the cost function  of time at this number of epochs.
+if(phase==1 && model.PLOT_RESULTS>0)
+    init_plots
+end
+% If also saving results, may want to plot (and save the figs) for a different set of figs.
+if(model.SAVE_RESULTS>0)
+    PLOT_INPUT_MAPS = 1;
+    PLOT_ORIGINAL_IMAGES = 0;
+    PLOT_INPUT_HIST = 0;
+    
+    PLOT_FILTERS = 0;
+    PLOT_PIXEL_FILTERS = 1;        % Does nothing for layer 1.
+    PLOT_FILTER_HISTOGRAM = 0;
+    
+    PLOT_FEATURE_MAPS = 0;         % All images
+    PLOT_POOLED_MAPS = 0;          % All images
+    PLOT_FEATURE_HIST = 0;
+    
+    PLOT_Z0_MAPS = 0;              % All images
+    
+    PLOT_UPDATED_Y = 0;            % Show
+    PLOT_RECON_Y = 1;
+    PLOT_RECON_Y_SAMPLE = 0;
+    
+    PLOT_TIMEFILL_COMPARISON = 0; % Compares filled in frame point to true frame.
+    
+    PRINT_ERRORS = 1; % Prints to std the errors of the cost function.
+    GRAPH_ERRORS = 0; % PLots out the cost function  of time at this number of epochs.
+    if(phase==1 && model.PLOT_RESULTS>0)
+        init_plots
+    end
+end
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+>> reconAll
+Trying to load gui_has_set_the_params.mat
+Using CPU
+Using CPU mode in  3
+Using CPU mode in  2
+Using CPU mode in  1
+
+Warning: maxNumCompThreads will be removed in a future release. Please remove any
+instances of this function from your code. 
+> In maxNumCompThreads at 26
+  In reconAll at 80 
+Loading previously trained model...
+Loading complete
+
+X
+X
+X
+X TRAINING SEEED IT SET TO 1!!!!!!!!!!!!!!!
+X
+X
+X
+Going to select frames: 1:1:endThe length of the I file cell array found in this directory is: 10
+Loading: /Users/ethanshao/Desktop/DLtest/train/Datasets/Images/fruit_100_100/1.jpg 
+ Image:          1/        10. Selecting every     1. Selected:          1 so far.
+Loading: /Users/ethanshao/Desktop/DLtest/train/Datasets/Images/fruit_100_100/10.jpg 
+ Image:          2/        10. Selecting every     1. Selected:          2 so far.
+Loading: /Users/ethanshao/Desktop/DLtest/train/Datasets/Images/fruit_100_100/2.jpg 
+ Image:          3/        10. Selecting every     1. Selected:          3 so far.
+Loading: /Users/ethanshao/Desktop/DLtest/train/Datasets/Images/fruit_100_100/3.jpg 
+ Image:          4/        10. Selecting every     1. Selected:          4 so far.
+Loading: /Users/ethanshao/Desktop/DLtest/train/Datasets/Images/fruit_100_100/4.jpg 
+ Image:          5/        10. Selecting every     1. Selected:          5 so far.
+Loading: /Users/ethanshao/Desktop/DLtest/train/Datasets/Images/fruit_100_100/5.jpg 
+ Image:          6/        10. Selecting every     1. Selected:          6 so far.
+Loading: /Users/ethanshao/Desktop/DLtest/train/Datasets/Images/fruit_100_100/6.jpg 
+ Image:          7/        10. Selecting every     1. Selected:          7 so far.
+Loading: /Users/ethanshao/Desktop/DLtest/train/Datasets/Images/fruit_100_100/7.jpg 
+ Image:          8/        10. Selecting every     1. Selected:          8 so far.
+Loading: /Users/ethanshao/Desktop/DLtest/train/Datasets/Images/fruit_100_100/8.jpg 
+ Image:          9/        10. Selecting every     1. Selected:          9 so far.
+Loading: /Users/ethanshao/Desktop/DLtest/train/Datasets/Images/fruit_100_100/9.jpg 
+ Image:         10/        10. Selecting every     1. Selected:         10 so far.
+
+Making Gray Image          1
+Making Gray Image          2
+Making Gray Image          3
+Making Gray Image          4
+Making Gray Image          5
+Making Gray Image          6
+Making Gray Image          7
+Making Gray Image          8
+Making Gray Image          9
+Making Gray Image         10
+
+
+Contrast Normalizing Image with Local CN:          1
+Contrast Normalizing Image with Local CN:          2
+Contrast Normalizing Image with Local CN:          3
+Contrast Normalizing Image with Local CN:          4
+Contrast Normalizing Image with Local CN:          5
+Contrast Normalizing Image with Local CN:          6
+Contrast Normalizing Image with Local CN:          7
+Contrast Normalizing Image with Local CN:          8
+Contrast Normalizing Image with Local CN:          9
+Contrast Normalizing Image with Local CN:         10
+
+
+Image          1 Already Square
+Image          2 Already Square
+Image          3 Already Square
+Image          4 Already Square
+Image          5 Already Square
+Image          6 Already Square
+Image          7 Already Square
+Image          8 Already Square
+Image          9 Already Square
+Image         10 Already Square
+Not Squaring, just converting all images from cell to matrix...
+
+All Images have been loaded and preprocessed.
+
+
+
+Rescaling images by max of dataset (3.984600).
+
+
+
+Rescaling images by max of dataset (3.984600).
+
+(1) Initializing Variables: Calculating pooling size for Layer 1 of pooling type Max3.
+  Input size for layer 1 is: (100 x 100 x 1 x 10).
+  Unpooled Feature size for layer 1 is: (106 x 106 x 15 x 10).
+  Pooled size for layer 1 is: (36 x 36 x 5 x 10).
+(1) Initializing Variables: Calculating pooling size for Layer 2 of pooling type Max3.
+  Input size for layer 2 is: (36 x 36 x 5 x 10).
+  Unpooled Feature size for layer 2 is: (42 x 42 x 50 x 10).
+  Pooled size for layer 2 is: (14 x 14 x 25 x 10).
+(1) Initializing Variables: Calculating pooling size for Layer 3 of pooling type Max3.
+  Input size for layer 3 is: (14 x 14 x 25 x 10).
+  Unpooled Feature size for layer 3 is: (20 x 20 x 100 x 10).
+  Pooled size for layer 3 is: (7 x 7 x 50 x 10).
+(1) Initializing Variables: Calculating pooling size for Layer 4 of pooling type Max3.
+  Input size for layer 4 is: (7 x 7 x 50 x 10).
+  Unpooled Feature size for layer 4 is: (13 x 13 x 150 x 10).
+  Pooled size for layer 4 is: (5 x 5 x 75 x 10).
+
+--------------------------------------------------------------------------------------------------------------------
+Starting Inference for Layer 1.
+--------------------------------------------------------------------------------------------------------------------
+(3) Initializing Variables: Randn POOLED Maps Layer 1.
+(4) Initializing the pooled_indices for all layers up to 1.
+  Initializing pooled_indices for layer 1 as 0:26.
+(5) Initial Filter Normalization:   Layer 1 
+ Zero Meaning, Max Norm Filters, 
+Removing non active recon_images in layer 2.
+Removing non active recon_images in layer 3.
+Removing non active recon_images in layer 4.
+
+Warning: Directory already exists. 
+> In train_recon_phase_all at 231
+  In reconAll at 217 
+Inferring Maps of Phase: 1 of 4, Layers: 1 of 4, Epoch:  1, Batch  1 /    1 CF_1PCF_1 ISTA3_beta0.0010000000 Infer Time: 0.316716 s (per image 0.031672 s)
+
+
+Errors for epochs 1 and batch 1:
+  Reg Error Layer 1          :    19.5694
+  Lambda Recon Error Layer 1 :   277.4276
+
+Total Errors:
+  Total Unscaled Cost        :   296.9969
+  Total Scaled Cost          :   296.9969
+Time for batch: 4.366268, Time not inferring: 4.049552.
+
+
+
+Now saving to /Users/ethanshao/Desktop/DLtest/Recon/Results/epoch1_phase1.mat ... 
+
+Save Complete.
+Starting to Delete Old Saves.
+Deleting Old Saves Failed.
+--------------------------------------------------------------------------------------------------------------------
+Inferring Maps of Phase: 1 of 4, Layers: 1 of 4, Epoch:  2, Batch  1 /    1 CF_1PCF_1 ISTA3_beta0.0010000000 Infer Time: 0.245368 s (per image 0.024537 s)
+
+
+Errors for epochs 2 and batch 1:
+  Reg Error Layer 1          :    30.3855
+  Lambda Recon Error Layer 1 :   244.1608
+
+Total Errors:
+  Total Unscaled Cost        :   274.5463
+  Total Scaled Cost          :   274.5463
+Time for batch: 0.886706, Time not inferring: 0.641338.
+
+
+
+Now saving to /Users/ethanshao/Desktop/DLtest/Recon/Results/epoch2_phase1.mat ... 
+
+Save Complete.
+Starting to Delete Old Saves.
+Deleting Old Saves Failed.
+--------------------------------------------------------------------------------------------------------------------
+Inferring Maps of Phase: 1 of 4, Layers: 1 of 4, Epoch:  3, Batch  1 /    1 CF_1PCF_1 ISTA3_beta0.0010000000 Infer Time: 0.329915 s (per image 0.032992 s)
+
+
+Errors for epochs 3 and batch 1:
+  Reg Error Layer 1          :    37.8131
+  Lambda Recon Error Layer 1 :   208.5826
+
+Total Errors:
+  Total Unscaled Cost        :   246.3957
+  Total Scaled Cost          :   246.3957
+Time for batch: 0.927915, Time not inferring: 0.597999.
+
+
+
+Now saving to /Users/ethanshao/Desktop/DLtest/Recon/Results/epoch3_phase1.mat ... 
+
+Save Complete.
+Starting to Delete Old Saves.
+Deleting Old Saves Failed.
+--------------------------------------------------------------------------------------------------------------------
+Inferring Maps of Phase: 1 of 4, Layers: 1 of 4, Epoch:  4, Batch  1 /    1 CF_1PCF_1 ISTA3_beta0.0010000000 Infer Time: 0.253894 s (per image 0.025389 s)
+
+
+Errors for epochs 4 and batch 1:
+  Reg Error Layer 1          :    44.4326
+  Lambda Recon Error Layer 1 :   194.3716
+
+Total Errors:
+  Total Unscaled Cost        :   238.8043
+  Total Scaled Cost          :   238.8043
+Time for batch: 0.854535, Time not inferring: 0.600641.
+
+
+
+Now saving to /Users/ethanshao/Desktop/DLtest/Recon/Results/epoch4_phase1.mat ... 
+
+Save Complete.
+Starting to Delete Old Saves.
+Deleting Old Saves Failed.
+--------------------------------------------------------------------------------------------------------------------
+Inferring Maps of Phase: 1 of 4, Layers: 1 of 4, Epoch:  5, Batch  1 /    1 CF_1PCF_1 ISTA3_beta0.0010000000 Infer Time: 0.256466 s (per image 0.025647 s)
+
+
+Errors for epochs 5 and batch 1:
+  Reg Error Layer 1          :    49.3729
+  Lambda Recon Error Layer 1 :   179.3521
+
+Total Errors:
+  Total Unscaled Cost        :   228.7250
+  Total Scaled Cost          :   228.7250
+
+-----Timings:         Previous Phases:
+                    Timings for current phase 1:
+                      Mean Batch Time for Phase 1:                                   0h:00m:0.883s
+                      Mean Image Time for Phase 1:                                   0h:00m:0.088s
+                      Total RunTime in Phase 1:                                      0h:00m:4.415s
+                      Estimated Time for Phase 1:                                    0h:00m:4.415s
+                      Estimated Time Left in Phase 1:                                0h:00m:0.000s
+                      Total RunTime Overall:                                         0h:00m:4.415s
+                    Future Phase Predictions;
+                      Phases Left                           3
+                       Phase 2 will be approx 3.152115x slower than Phase 1 and take 0h:00m:27.831s  (0h:00m:2.783s per batch)
+                       Phase 3 will be approx 3.894173x slower than Phase 1 and take 0h:00m:34.383s  (0h:00m:3.438s per batch)
+                       Phase 4 will be approx 4.332074x slower than Phase 1 and take 0h:00m:38.250s  (0h:00m:3.825s per batch)
+                      Estimated Total Runtime:                                       0h:01m:44.879s
+                      Estimated Time Left:                                           0h:01m:40.464s
+-----
+Time for batch: 0.858832, Time not inferring: 0.602366.
+
+
+
+Now saving to /Users/ethanshao/Desktop/DLtest/Recon/Results/epoch5_phase1.mat ... 
+
+Save Complete.
+Starting to Delete Old Saves.
+Deleting Old Saves Failed.
+--------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------
+Starting Inference for Layer 2.
+--------------------------------------------------------------------------------------------------------------------
+(3) Initializing Variables: Randn POOLED Maps Layer 2.
+(4) Initializing the pooled_indices for all layers up to 2.
+  Initializing pooled_indices for layer 2 as 0:17.
+(5) Initial Filter Normalization:   Layer 2 
+ Zero Meaning, Max Norm Filters,  Clipping (below 0.100000) 
+Removing non active recon_images in layer 1.
+Removing non active recon_images in layer 3.
+Removing non active recon_images in layer 4.
+
+Warning: Directory already exists. 
+> In train_recon_phase_all at 231
+  In reconAll at 217 
+Error using  == 
+Array dimensions must match for binary array op.
+
+Error in reverse_max_pool3d (line 61)
+pooled_maps = squeeze(pooled_maps.*(ind==k_indices));
+
+Error in unpool_wrapper (line 122)
+            unpooled_maps =
+            reverse_max_pool3d(pooled_maps,pooled_indices,pool_size,unpooled_size,COMP_THREADS);
+            
+Error in unpool_all_layers (line 52)
+            unpooled_maps{i} =
+            unpool_wrapper(pool_types{i},maps{i},pooled_indices{i},pool_sizes{i},unpooled_sizes{i},COMP_THREADS);
+            
+Error in train_recon_phase_all (line 274)
+            unpz =
+            unpool_all_layers(model.norm_types,cat(2,{y},z),pooled_indices,model.norm_sizes,model.unpooled_sizes,model.comp_threads,model.layer);
+            
+Error in reconAll (line 217)
+    [model,F,newz,z0,pooled_indices,recon_images,y] =
+    train_recon_phase_all(model,F,z,z0,pooled_indices,recon_images,y,original_images); 
+>> 
